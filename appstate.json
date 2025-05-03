@@ -1,0 +1,6 @@
+const login = require("fca-unofficial");
+const fs = require("fs");
+
+login({ email: "EMAIL", password: "PASSWORD" }, (err, api) => {
+    if (err) return console.error(err);
+    fs.writeFileSync("appstate.json", JSON.stringify(api.getAppState()));
